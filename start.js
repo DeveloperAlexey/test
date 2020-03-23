@@ -20,3 +20,4 @@ console.log(person["age"]);
 let answer = prompt("how you age?", "19");
 
 console.log(answer);
+s
