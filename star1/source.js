@@ -19,7 +19,8 @@ let appData = {
     timeData: time,
     income: [],
     sevings: true,
-    expenses: {}
+    expenses: {},
+    optionalExpenses:{}
 
 
 };
@@ -41,25 +42,40 @@ function chooseExpenses(){
 
 chooseExpenses();
 
-alert("budget\n" + (appData.money/30).toFixed());
-
-if(appData.money/30 < 100){
-    console.log("minimal level");
-}else if(appData.money/30 > 100 && appData.money/30 < 2000){
-    console.log("averedge level");
-}else if(appData.money/30 > 2000){
-    console.log("high level");
-}else{
-    console.log("error");
+function detectDayBudget(){
+     alert("budget\n" + (appData.money/30).toFixed());
 }
+
+detectDayBudget();
+function detectLevel(){
+     if(appData.money/30 < 100){
+         console.log("minimal level");
+     }else if(appData.money/30 > 100 && appData.money/30 < 2000){
+         console.log("averedge level");
+     }else if(appData.money/30 > 2000){
+         console.log("high level");
+     }else{
+         console.log("error");
+     }
+}
+
+detectLevel();
 
 function checkSavings(){
     if(appData.sevings == true){
         let save = +prompt("how many accumulated money"),
-            percent = +prompt("how many percent");
+          percent = +prompt("how many percent");
 
         appData.monthIncome = save/100/12 + percent;
         alert("income in month\n" + appData.monthIncome);
     }
 }
 checkSavings();
+
+function chooseOptExpenses(){
+    let i;
+    for(i = 1;i < 4;i++){
+        appData.optionalExpenses[i] = prompt("rasohod na kurag");
+    }
+}
+chooseOptExpenses();
